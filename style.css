@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #050508;
+  font-family: "Space Grotesk", sans-serif;
+  color: #f4f3ff;
+  user-select: none;
+}
+
+#garden-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: pointer;
+}
+
+.floating-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.floating-note {
+  position: fixed;
+  top: 28px;
+  font-size: 0.92rem;
+  letter-spacing: 0.6px;
+  color: rgba(214, 206, 255, 0.85);
+  text-shadow: 0 0 14px rgba(139, 118, 255, 0.55);
+  animation: floatDrift 5.5s ease-in-out infinite;
+}
+
+.center-prompt {
+  font-size: clamp(1.2rem, 3.6vw, 2rem);
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  color: rgba(248, 246, 255, 0.92);
+  text-shadow: 0 0 22px rgba(145, 110, 255, 0.45);
+  animation: floatPulse 4.2s ease-in-out infinite;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.center-prompt.subtle {
+  opacity: 0.45;
+  transform: translateY(14px) scale(0.96);
+}
+
+@keyframes floatDrift {
+  0%,
+  100% {
+    transform: translate(-18px, 0px);
+  }
+  50% {
+    transform: translate(18px, -10px);
+  }
+}
+
+@keyframes floatPulse {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
